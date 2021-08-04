@@ -1,0 +1,189 @@
+%-------------------------
+% Resume in Latex
+% Author : Subhesh Kumar
+% License : MIT
+%------------------------
+
+\documentclass[letterpaper,11pt]{article}
+
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{}
+\usepackage{enumitem}
+\usepackage[pdftex]{hyperref}
+\usepackage{fancyhdr}
+
+
+\pagestyle{fancy}
+\fancyhf{} % clear all header and footer fields
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% Adjust margins
+\addtolength{\oddsidemargin}{-0.375in}
+\addtolength{\evensidemargin}{-0.375in}
+\addtolength{\textwidth}{1in}
+\addtolength{\topmargin}{-.5in}
+\addtolength{\textheight}{0.5in}
+
+\urlstyle{same}
+
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+% Sections formatting
+\titleformat{\section}{
+  \vspace{-2pt}\scshape\raggedright\large
+}{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
+
+%-------------------------
+% Custom commands
+\newcommand{\resumeItem}[2]{
+  \item\small{
+    \textbf{#1}{: #2 \vspace{-2pt}}
+  }
+}
+
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-1pt}\item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & #2 \\
+      \textit{\small#3} & \textit{\small #4} \\
+    \end{tabular*}\vspace{-5pt}
+}
+
+\newcommand{\resumeSubItem}[2]{\resumeItem{#1}{#2}\vspace{-4pt}}
+
+\renewcommand{\labelitemii}{$\circ$}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=*]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+
+%-------------------------------------------
+%%%%%%  CV STARTS HERE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{document}
+
+%----------HEADING-----------------
+\begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
+  \textbf{\href{https://https://www.linkedin.com/company/pepcoding-education/mycompany/}{\Large Pepper}} & Email :  \href{mailto:contact@pepcoding.com}{contact@pepcoding.com}\\
+  \href{www.linkedin.com/company/pepcoding-education/mycompany/}{LinkedIn : pepcoding}& Mobile :  +91 1140194461 \\
+  \href{https://github.com/rajneeshkumar146/}{Github : rajneeshkumar146}
+\end{tabular*}
+
+
+%-----------EDUCATION-----------------
+\section{Education}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+      {Pepcoding Pvt. Ltd.}{New Delhi,India}
+      {Bachelor Of Engineering in LevelUp; CGPA: 8.23}{Aug. 2016 -- July. 2020}
+    \resumeSubheading
+      {DAV Centenary Public School}{New Delhi, India}
+      {CBSE, Class 12; Percentage: 95}{March. 2015}
+      \resumeSubheading
+      {DAV Centenary Public School}{New Delhi, India}
+      {CBSE, Class 10; CGPA: 9.4}{March. 2013}
+  \resumeSubHeadingListEnd
+
+%-----------Technical Skills-----------------
+\section{Technical Skills}
+  \resumeSubHeadingListStart
+    \resumeSubItem
+      {Language: }
+      {Java (J2SE), C++ (GCC 14), python, javaScript, Node.js, Bootstrap, HTMl, CSS, ExpressJs, selenium}
+    \resumeSubItem
+      {Database Plateform: }
+      {MYSQL}
+     \resumeSubItem
+      {Other Technology: }
+      {Git/Github, Matlab }
+
+  \resumeSubHeadingListEnd
+
+
+%-----------EXPERIENCE-----------------
+\section{Internships and Training}
+  \resumeSubHeadingListStart
+\resumeSubheading
+      {Pepcoding educational private limited}{New Delhi, India}
+         {Instructor and Product Engineer} {Aug 2019 - Present}.     
+          \subitem{Took Java and C++ Foundation Batches: Related Coursework: 
+          Basics, Array/String, Recursion, Dynamic Programming, Tree, AVL, Graph, HashMap, Heap, Stack and Queue}\\
+          \subitem{6 batches have been completed so far: helped students gain an optimal understanding of coding starting from absolute zero
+          }
+
+    \resumeSubheading
+      {Pepcoding educational private limited}{New Delhi, India}
+        {Technical Project Manager Intern} {June 2019 - Aug 2019}.
+          
+          { Responsible for Managing 15 software engineer interns working on pepcoding.com website. and Created questions in Stack and Queues and Dynamic Programming for Pep-Coding’s question bank
+          }
+
+    \resumeSubheading
+      {Pepcoding educational private limited}{New Delhi, India}
+      {Teaching Assistant and Question Setter}{June 2018 - September 2018}.
+          
+          {Teaching assistant in Foundation and Level-Up batches: helped CS and IT undergrads with programming fundamentals}
+  \resumeSubHeadingListEnd
+
+
+%-----------PROJECTS-----------------
+\section{Projects}
+  \resumeSubHeadingListStart
+    \resumeSubItem{RDBMS Index implementation using B-Trees}
+      {The project implements a btree based indexing to speed up searching in a relational database search time reduces by a factor of logm where m is the degree of btree.}
+    \resumeSubItem{Data Structure Project}
+      {LCA for m queries in (m*logn, m* o(1)) where n is number of nodes. Console app using trie data structure that make autocomplete suggestions from given word list.}
+     \resumeSubItem{White-Board}
+      {Contributed to white board for Pep-Coding’s doubt resolution module built using Vanilla JavaScript, HTML and CSS.Created Undo-Redo features for the board using Arrays as stack by storing Positions}
+    %  \resumeSubItem{Find and Lost Person: }
+    %   {A Web App Which Finds People On Different Social Media Sites Using Only A Passport Site Photo And Name Of The Person, The App Uses Ruby On Rails For Web App,Python And Its Libraries Like face recognition and beautifulsoup etc for scripting}
+       
+  \resumeSubHeadingListEnd
+  
+%   \section{Academic Achievments}
+%   \resumeSubHeadingListStart
+%     \resumeSubItem{Codechef}
+%       { 1920 rating at Codechef (https://www.codechef.com/users/subhu12).}
+%       \resumeSubItem{Blog}
+%       {I write Articles on different data structures and algorithm for my Blog (https:// reducedcomplexity.wordpress.com)}.
+%   \resumeSubHeadingListEnd
+  %--------- Position of Responsibility------
+  \section{Position of Responsibility/Extra-Curricular Activities}
+  \resumeSubHeadingListStart
+\resumeSubItem
+      {co-founder of "pepcoding"}
+{The mission is to bring in “The great Indian coding renaissance” and PepCoding is the flag, under which I’ll take the battle for this cause.}
+
+    \resumeSubItem
+      {Founder of "The Debugging Society"}
+{Started in 2017 from NSIT, TDS has been able to develop a passion for coding and network of avid programmers who are willing to learn and share knowledge.}
+
+    \resumeSubItem{Manager of BloodConnect, Delhi Team}
+{Awareness and Consulting Manager for period of jun’17 - Jun’18 and conducted two event’s Superhero Rally in DU and Annual Event in Ambience Mall}
+
+
+  \resumeSubHeadingListEnd
+%
+%--------PROGRAMMING SKILLS------------
+%\section{Programming Skills}
+%  \resumeSubHeadingListStart
+%    \item{
+%      \textbf{Languages}{: Scala, Python, Javascript, C++, SQL, Java}
+%      \hfill
+%      \textbf{Technologies}{: AWS, Play, React, Kafka, GCE}
+%    }
+%  \resumeSubHeadingListEnd
+
+
+%-------------------------------------------
+\end{document}

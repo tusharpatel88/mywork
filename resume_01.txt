@@ -1,0 +1,230 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% OPTCR - One Page Two Column Resume
+% LaTeX Template
+% Version 1.1 (01/06/2018)
+%
+% Original author:
+% Rajneesh Kumar
+%
+% Original repository:
+% https://github.com/deedydas/Deedy-Resume
+%
+% IMPORTANT: THIS TEMPLATE NEEDS TO BE COMPILED WITH XeLaTeX
+%
+% This template uses several fonts not included with Windows/Linux by
+% default. If you get compilation errors saying a font is missing, find the line
+% on which the font is used and either change it to a font included with your
+% operating system or comment the line out to use the default font.
+% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\documentclass[]{deedy-resume-openfont}
+
+
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%     LAST UPDATED DATE
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\lastupdated
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%     TITLE NAME
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\namesection{}{pepper}{ \urlstyle{same}
+\href{mailto:contact@pepcoding.com}{contact@pepcoding.com} | +91 1140194461
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%     COLUMN ONE
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{minipage}[t]{0.33\textwidth} 
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%     LINKS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Links} 
+LinkedIn://  \href{https://www.linkedin.com/company/pepcoding-education/mycompany/}{\custombold{pepcoding}} \\
+CodeChef://  \href{https://www.codechef.com/users/rajneeshkumar}{\custombold{rajneeshkumar}} \\
+HackerRank://  \href{https://www.hackerrank.com/rajneeshkumar146}{\custombold{rajneeshkumar146}} \\
+HackerEarth://  \href{https://www.hackerearth.com/@rajneeshkumar146}{\custombold{rajneeshkumar146}} \\
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%     COURSEWORK
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Coursework}
+\textbullet{} Data Structure \\
+\textbullet{} Algorithms\\
+\textbullet{} Object Oriented Programming \\
+\textbullet{} Web Development \\
+\sectionsep
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%     SKILLS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Skills}
+\subsection{Programming}
+\vspace{2mm}
+\location{Over 10000+ lines:}
+\textbullet{} Java \\
+\vspace{2mm}
+\location{Over 1000+ lines:}
+\textbullet{} C \\
+\textbullet{} C++ \\ 
+\textbullet{} Latex \\
+\vspace{2mm}
+\location{Familiar:}
+\textbullet{} MATLAB \\
+\textbullet{} python
+
+\sectionsep
+
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% %     PROJECTS
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% \section{PROJECTS}
+% \textbullet{} Bluetooth Car Controlled by Mobile Application Based on Arduino.\\
+% \location{On Java Platform:}
+% \textbullet{} SUDOKU By Bit-Masking.\\
+% \textbullet{} Cross Word.\\
+% \textbullet{} Trie, Huffman Encoder-Decoder and Other Data Structure.\\
+% \sectionsep
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%     HOBBIES
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{HOBBIES}
+\textbullet{} Competitive Programming \\
+\textbullet{} Teaching \\
+\textbullet{} Learning New Technical Skills \\
+\textbullet{} Reading And Writing on Quora\\
+\sectionsep
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%     COLUMN TWO
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\end{minipage} 
+\hfill
+\begin{minipage}[t]{0.66\textwidth} 
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%     EDUCATION
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Education} 
+\sectionsep
+\subsection{Pepcoding pvt. ltd.}
+\location{B.E. In LevelUp Course}
+Expected: AUG 2020 \\
+GPA: 8.23 / 10.00
+
+
+\subsection{DAV Centenary Public School | New Delhi, India}
+Grade MAY 2015 \\ CPI: 95
+\sectionsep
+
+\subsection{DAV Centenary Public School | New Delhi, India}
+Grade MAY 2013 \\ GPA: 9.4
+\sectionsep
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%     EXPERIENCE
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Experience}
+
+\runsubsection{THE DEBUGGING SOCIETY}\hspace{1mm}|\hspace{1mm}
+\descript{FOUNDER AND VICE-PRESIDENT}
+\location{AUG 2017 – Present\hspace{2mm}|\hspace{2mm}Delhi, India}
+\vspace{\topsep} % Hacky fix for awkward extra vertical space
+\begin{tightemize}\item 
+% I started a society in my college to help my peers and introduce them to the world of programming with basic and advance knowledge of competitive programming where i served as a JAVA Mentor.
+
+Mentoring more than 200 students of NSIT in programming related courses teaching them Data Structures, Algorithms and organized events like Resilience, Blitzen, Code Like It Matters etc,
+% \item We Started Web Development Course for our Students.
+\end{tightemize}
+\sectionsep
+
+
+% \runsubsection{PEPCODING.COM}
+% \descript{| TEACHER ASSISTANT }
+% \location{JUN 2018 – AUG 2018|Delhi, India }
+% \begin{tightemize}
+% \item Teacher Assistant for Data Structure And Algorithm Using JAVA.
+% \end{tightemize}
+% \sectionsep
+
+\runsubsection{PEPCODING}\hspace{1mm}|\hspace{1mm}
+\descript{Intern }
+\location{DEC 2017 – AUG 2018\hspace{2mm}|\hspace{2mm}Delhi, India}
+\begin{tightemize}
+\item Created 200+ question for pepcoding foundation and competitive batch related to basic Algorithms/Data Structure and some newly framed competitive level question Over Hackerrank platform.
+\item Link:  \href{https://www.hackerrank.com/pepdec62017}{\custombold{www.hackerrank.com/pepdec62017}} \\
+\item Responsible for solving doubts of student on Data Structure and Algorithms using JAVA (Jun'18 to Aug'18)
+\end{tightemize}
+\sectionsep
+\runsubsection{Pepcoding}\hspace{1mm}|\hspace{1mm}
+\descript{TEACHER ASSISTANT}
+\location{Jan 2017 – Aug 2017\hspace{2mm}|\hspace{2mm}Delhi, India}
+\begin{tightemize}
+\item Responsible for solving doubts of student on Data Structure and Algorithms using JAVA. \end{tightemize}
+\sectionsep
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%   PROJECTS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{PROJECTS} \vspace{2mm}
+\begin{tightemize}
+
+\item Bluetooth car Controlled by Mobile Application based on Arduino kit. Aim of this project is to reduce the power consumption by car. 
+\item Solved Sudoku, N-Queen problem By using Bit-Masking, Some of Advance problem of Recursion like Crossword, Rat in Maze and Successfully implemented Trie, Radix Tree, Huffman Encoder-Decoder, AVL, Ford Fulkerson, convex hull (Jarvis's algorithm and Wrapping).
+\item Speed And Syntax Enhancement Tutor. It aims at providing a platform where User's use practice JAVA code Syntax and improve coding skills.
+ \end{tightemize}
+\sectionsep
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%   Position Of Responsibility
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Position Of Responsibility}
+\runsubsection{BLOODCONNECT}
+\descript{| IITD, New Delhi,India}
+\location{Feb 2017 – Present | IITD, Delhi, India}
+\begin{tightemize}
+
+\item Awareness Manager for period of jun'17 - Nov'17 and conducted two event's Superhero Rally in DU and Annual Event in Ambience Mall, Gurugram.
+\item Expansion and Consulting Manager (Dec'17 - May'18).
+\item College Team Head (May'17 – Present).
+ \end{tightemize}
+\sectionsep
+
+
+\end{minipage} 
+\end{document}
