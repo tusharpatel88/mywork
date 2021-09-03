@@ -1,0 +1,31 @@
+JSP HOOK
+- LIferay Module Fragment Project
+- Search OSGI Bundle
+- Select Jar File
+- Select JSP file
+
+Filter
+- Create Module
+- Extend BaseFilter
+- Override ProccessFilter
+@Component( immediate = true,  property = { "servlet-context-name=",  "servlet-filter-name=Custom Filter", "url-pattern=/*"  },  service = Filter.class ) 
+
+Struts Action Hook
+- Module Project
+- @component
+- property - path-/update/emailAddress
+- Extend BaseStrutsAction
+- Override execute method
+
+Lang Properties hook
+@Component( property = { "language.id=en_US" },  service = ResourceBundle.class) 
+
+Add the below annotation config in @Component annotations 
+Action Command
+@Component( immediate = true, property = { 
+"javax.portlet.name=com_liferay_login_web_portlet_LoginPortlet", "mvc.command.name=/login/login", 
+"service.ranking:Integer=100" }, service = MVCActionCommand.class ) 
+
+Add the below annotation config in @Component annotations 
+@Component( immediate = true, service = ModelListener.class) 
+
