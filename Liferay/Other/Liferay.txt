@@ -1,0 +1,3 @@
+- benefits of elastic search over lucene
+- customize liferay search
+-

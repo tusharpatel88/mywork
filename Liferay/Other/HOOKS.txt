@@ -1,0 +1,107 @@
+JSP HOOK
+
+- Open File menu → Click on New -> select Liferay Module Fragment Project 
+
+- Select OSGI bundle
+
+- Select JSP file which we want to override.
+
+- Change the JSP file.
+
+
+Filter Hook
+
+Open File menu → click New → select Liferay Module Project. Provide project name as ‘FilterHook’ and click on ‘Next’. 
+
+- Provide component name and package path for the filter class and click on Finish. 
+
+- We require to add following properties inside @Component class
+
+- url-pattern - /web/guest/home
+
+- Service = Filter.class
+
+
+Please note that your filter class will extend BaseFilter class.
+
+You will need to override processFilter() method which will take parameters as HttpServletRequest request, HttpServletResponse response, FilterChain filterChain
+
+
+
+Struts Action Hook 
+
+Click on File menu → Click New → Select Liferay Module Project and provide project name as StrutsActionHook and click next. 
+- path - /portal/emailAddress
+
+- Service = Filter.class
+
+- Extends BaseStrutsAction
+
+- Require to override execute method.
+
+- Info available in struts-config.xml. 
+
+
+
+Language Hook
+
+Create Component class 
+
+add the below configuration in to @Component annotation 
+
+@Component( property = { "language.id=en_US" },  service = ResourceBundle.class) 
+
+
+Service Wrapper Hook
+Create component class 
+
+Add the below annotation config in @Component annotations 
+
+@Component( immediate=true, service = ServiceWrapper.class  ) 
+
+Class need to extend the {entity}ServiceWrapper.java (UserServiceWrapper,JournalArticalServiceWrapper) and override the required methods 
+
+
+Action Commands Hook Configuration: 
+Create component class 
+
+Add the below annotation config in @Component annotations 
+
+@Component( immediate = true, property = { "javax.portlet.name=com_liferay_login_web_portlet_LoginPortlet", "mvc.command.name=/login/login", "service.ranking:Integer=100" }, service = MVCActionCommand.class ) 
+
+service.ranking:Integer is mandatory to override action command 
+
+Class need to extend the class and override the doProcessAction or ProcessAction methods 
+
+
+
+8 Model Listener 
+
+Model Listener is used to listen to Liferay Model Events. We can perform custom action on Before/After the persistence event of Model objects using Model Listener.  
+
+Model Listeners implement ModelListener interface. They are useful in terms of processing, custom login on Model objects while they are added/updated/removed. For ex, if we want to perform any specific action before User is created then we can implement the Model Listener for User model and perform actions on onBeforeCreate method.  
+
+This would be invoked before persistence layer’s create method. 
+
+@Component( 
+
+immediate = true, 
+
+service = ModelListener.class 
+
+) 
+
+public class MyCustomRoleModelListenerPortlet extends BaseModelListener<Role> { 
+
+ 
+ 
+
+@Override 
+
+public void onAfterCreate(Role model) throws ModelListenerException { 
+
+@Override 
+
+public void onBeforeCreate(Role model) throws ModelListenerException { 
+
+ 

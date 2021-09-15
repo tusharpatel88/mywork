@@ -1,0 +1,3 @@
+. The internal working of the PriorityQueue is based on the Binary Heap.
+
+ PriorityQueue<Integer> intQ = new PriorityQueue<>();

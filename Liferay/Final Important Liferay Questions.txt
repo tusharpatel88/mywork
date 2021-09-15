@@ -1,0 +1,328 @@
+1 Difference between liferay 6.2 and dxp?
+
+BOOT STRAP, AUI Version   	 3 		 		2
+File Format 			   Jar/war   		war
+Container                  OSGI 	 		Traditional
+Search		     Inbuilt Elastic Search     Apache Lucene
+Single Page      Inbuiilt Sena JS 			Not inbuilt Single page app support
+Design           Clay and LexiCon			Not support
+GoGO Shell       Activate and Deactivate    Require to Remove
+
+- Liferay Forms
+- Geolocate Content & Documents
+- Image and Media Selector
+- Image Editor
+- Webcontent diff
+  
+
+2 Types of Hook
+
+
+3 Steps for the dxp upgrade
+- Data CleanUp:- Remove unused sites , Instances , webcontent, Users, layout , Other Data , Duplicate Structure Name
+- Liferay Database Migration :- Liferay Provide Database Migration Tool
+								Disable Search Index
+								Backup of DB
+								- Create New DB - Import DB
+								- portal-setup-wizard.properties - Provide the db connection properties
+								- Copy Data Folder
+								- Disable indexer and autoUpgrade
+								- Run Tools portal-tools-db-upgrade-client in [Liferay Home]/tools 
+								- Upgrade properties - app.server.properties , database.properties , 
+								- Verify BuildNumber select * from release_ where servletcontet = 'portal'
+								- Double click on “db_upgrade.bat” file
+								- Enable the Search Index
+								
+- Code Migration :- Liferay provide code upgrade tool
+				  - JSP hook take reference of files and create
+				  - Portlet Migration code upgrade tool
+				  - Code Upgrade Tool in Liferay Developer Studio (Project -> Liferay Code Upgrade Tool menu). 
+				  - After importing project we can click “Find breaking changes” button, 
+				  - Changes require to do and corrosponding jira link
+				  
+				  - JSP Hook
+				   - Good to create from scratch
+				   - Find diff and apply
+				   
+				   LayOut Template
+				   - Create LayOut Template
+				   
+				   Theme
+				   Short term solution
+				   - Backup
+				   - yo liferay-theme:import
+				   - gulp upgrade
+				   - Updates the theme’s Liferay version
+				   - Updates the CSS
+				   - Update Template
+				   - Suggests specific code updates
+				   - gulp upgrade
+
+- Elastic Search
+Elasticsearch is a search engine based on the Lucene library. It provides a distributed, multitenant-capable full-text search engine with an HTTP web interface and schema-free JSON documents. ... According to the DB-Engines ranking, Elasticsearch is the most popular enterprise search engine.
+
+Some of its primary features include distributed full-text distributed search, high availability, powerful query DSL, multitenancy, Geo Search, and horizontal scaling.
+				   
+				   
+				   
+				   
+				   
+				   
+				  
+
+								
+
+
+
+4 Customize search liferay
+- Gsearch
+-PostIndexer
+-https://help.liferay.com/hc/en-us/articles/360018161651-Customizing-Liferay-Search
+- JSP Hook to overide look and feel
+
+5 Indexer Hook
+Use - The main purpose of the Indexer Hook is to execute our custom code which will be invoked after the default Indexer class has done its work. 
+- Job Title - of user will not able to search 
+- Using Indexer Post Processor hook
+
+@Component(
+    immediate = true,
+    property = {
+        "indexer.class.name=com.liferay.portal.kernel.model.User",
+        "indexer.class.name=com.liferay.portal.kernel.model.UserGroup"
+    },
+    service = IndexerPostProcessor.class
+)
+
+6 Struts Action Hook
+Use - execute your logic in particular action.
+While callin action- e.g. Update email , update terms and condition
+struts actions can be overridden directly with service = StrutsAction.class and only struts action defined in struts-config.xml can only overridden
+
+@Component(
+ immediate=true,
+ property={
+ "path=/portal/update_terms_of_use"
+ },
+ service = StrutsAction.class
+)
+public class CustomTermsOfUseAction extends BaseStrutsAction {
+ 
+ @Override
+ public String execute(StrutsAction originalStrutsAction, HttpServletRequest request, HttpServletResponse response)
+ throws Exception {
+  System.out.println("Calling Custom Termsof Use Action");
+  //you logic goes here
+  return super.execute(originalStrutsAction, request, response);
+ }
+
+
+
+7 Service Hook
+- We can achieve portal service customization with the help of Service Wrapper hook.
+- servicewrapper” template.
+- Now select service for Blogs entry 
+- Override addEntry method of BlogsEntryServiceWrapper class
+- @Component(
+
+immediate = true,
+property = {},
+service = ServiceWrapper.class
+)
+public class CustomBlogsEntryServiceWrapper extends BlogsEntryLocalServiceWrapper
+
+8 Model Listener
+Model Listener is used to listen to  Liferay Model Events. We can perform custom action on Before/After the persistence event of Model objects using Model Listener. Model Listeners implement ModelListener interface.
+@Component(
+
+immediate = true,
+
+service = ModelListener.class
+
+)
+public class MyCustomRoleModelListenerPortlet extends BaseModelListener<Role> {
+
+
+
+9 Service Builder
+
+10 Portlet Filter
+Action Filter : To Intercept only The Action Requests
+Render Filter : To Intercept only The Render Requests
+Resource Filter : To Intercept only The Resource Requests
+Base Filter : To Intercept all the http request comes to your portlet.
+Create A Module Project for Portlet
+import org.osgi.service.component.annotations.Component;
+import javax.portlet.filter.PortletFilter;
+@Component(immediate = true, 
+ property = {
+  "javax.portlet.name="+MyPortletKeys.My, 
+ },
+ service = PortletFilter.class
+)
+
+public void init();
+public void destroy();
+public void doFilter();
+public class EncodingPersonEmailsRenderFilter implements RenderFilter
+
+
+
+11 JSR 286 Standard
+IPC
+Serve Resource
+Portlet filter
+
+
+12 MVC Command Render
+@Component(
+ property = {
+ "javax.portlet.name=org_javasavvy_web_leave_portlet",
+ "mvc.command.name=viewleave_info"
+ }, service = MVCRenderCommand.class
+ )
+public class ViewLeaveInfoCmd implements MVCRenderCommand{
+
+
+
+13 How to connect multiple data source liferay?
+https://liferayiseasy.blogspot.com/2020/01/connect-service-builder-to-external.html
+ <entity name="Employee" local-service="true" remote-service="false" table="employee" data-source="secondDatabase">
+        <column name="eid" primary="true" type="int"></column>
+        <column name="ename" type="String"></column>
+    </entity>
+	
+	
+	
+	Now open your portal-ext.properties and enter the database properties
+	jdbc.ext.driverClassName=com.mysql.jdbc.Driver
+jdbc.ext.username=root 
+jdbc.ext.password=root	 
+jdbc.ext.url=jdbc:mysql://localhost/datasourcetesting?characterEncoding=UTF-8&dontTrackOpenResources=true&holdResultsOpenOverStatementClose=true&serverTimezone=GMT&useFastDateParsing=false&useUnicode=true
+
+	
+	src/main/resource/Meta-inf/module-spring.xml
+	   <bean  class="com.liferay.portal.dao.jdbc.spring.DataSourceFactoryBean" id="liferayDataSourceFactory" >
+              <property name="propertyPrefix" value="jdbc.ext." />
+       </bean>
+	
+	
+
+14 How to create custom workflow?
+https://www.javasavvy.com/liferay-dxp-custom-entity-kaleo-workflow-tutorial/
+
+15 How to create custom asset?
+https://www.javasavvy.com/liferay-7-asset-render-factory-example/
+
+- we will make the custom entity as asset so that it can be accessible Liferay frameworks such as comments,asset publishers and workflow. 
+- Define AssetEntry reference in service.xml
+<reference entity="AssetEntry" package-path="com.liferay.portlet.asset" />
+ <reference entity="AssetTag" package-path="com.liferay.portlet.asset" />
+ 
+  AssetEntry assetEntry = assetEntryLocalService.updateEntry( user.getUserId(), serviceContext.getScopeGroupId(), 
+ new Date(), new Date(), Leave.class.getName(), leave.getLeaveId(), leave.getUuid(),0, null, null, true, 
+ false, new Date(), null,new Date(), null,ContentTypes.TEXT_HTML, leave.getLeaveName(), leave.getLeaveName(), 
+ null, null, null, 0, 0, null)
+ What Next after adding entry into AssetEntry table?
+ The Entity need to be displayed on the user interface.  Liferay provides Asset Publisher API for default rendering of custom entity attributes such as title and description.
+ Liferay also provides custom AssetRenderer API to display additional attributes and editing entity
+High Level Steps:
+Create Asset Renderer
+Create AssetRenderer Factory OSGI service  to create AssetRenderer
+
+16 How to solve dependency problem liferay
+
+17 Self Register page which hook require to create?
+- Login JSP Hook Require to create
+- 
+
+18 How to solve dependency problem liferay?
+
+19 How to implement action command?
+@Component(
+ property = {
+ "javax.portlet.name=org_javasavvy_web_leave_portlet",
+ "mvc.command.name=leave_editLeave"
+ },
+ service = MVCActionCommand.class
+ )
+public class EditLeaveActionCommand extends BaseMVCActionCommand {
+
+20 State of bundle
+Installed - The bundle has been succcesfully installed
+Resolved  - All Java classes that the bundle needs are available. This state indicates that the bundle is either ready to be started or has stopped.
+Starting  - The bundle is being started. the BundleActivator.start method has been called but the start method has not yet returned. 
+		  - When the bundle has an activation policy, the bundle will remain in the STARTING state until the bundle is activated according to its activation policy.
+ACTIVE:	  - The bundle has been successfully activated and is running. Its Bundle Activator start method has been called and returned.
+STOPPING: - The bundle is being stopped. The BundleActivator.stop method has been called but the stop method has not yet returned.
+
+
+			
+
+
+21 OSGI benefits
+You can install, uninstall, start, and stop different modules of your application dynamically without restarting the container.
+Your application can have more than one version of a particular module running at the same time.
+OSGi provides very good infrastructure for developing service-oriented applications, as well as embedded, mobile, and rich internet apps.
+
+22 Use of export and import
+
+23 how to provide multiple version?
+
+24 Patching Tool 
+[Liferay Home]/patching-tool/patches
+patching-tool info
+patching-tool install
+To make sure the all changed OSGi bundles replace the existing ones, it is recommended to delete the osgi/state folder from the Liferay Home folder.
+patching-tool index-info
+database.indexes.update.on.startup=true
+
+
+25 Elastic Container
+https://help.liferay.com/hc/en-us/articles/360018175651-Configuring-Elasticsearch
+
+26 Service Context
+The ServiceContext class holds contextual information for a service. It aggregates information necessary for features used throughout Liferay’s portlets, such as permissions, tagging, categorization, and more. 
+
+
+27 Modal Hints
+Purpose - In Liferay you can easily modify DB column size. 
+Proccess - src/META-INF  -> portlet-model-hints.xml
+<field name="columnName" type="String">
+ <hint name="max-length">4000</hint>
+</field>
+
+- Here is the example for Column with type String. By default if we use type as a string in service.xml then size will be 75.
+- By doing few changes inside portlet-model-hints.xml. This configuration file is available inside src/META-INF directory. To increase column size do something like this.
+
+
+- If max-length is less-then 4000 then column type will be Varchar.
+- If max-length is equal to 4000 then column type will be STRING. If max-length is greater then 4000 then column type will be TEXT.
+
+
+28 How to check if module have issue
+- Check logs
+- Open Gogo Shell
+- diag bundleid
+- 
+
+29 Configuration cfg or control panel
+- control panel value store in db have more precedence
+
+30 Liferay DXP ActionCommand Hook 
+Purpose :- tutorial will drive you on customizing liferay portlet actions such as user authentication action,edit journal article action, edit  blog action etc.
+Component(
+ immediate = true,
+ property = {
+ "javax.portlet.name=com_liferay_login_web_portlet_LoginPortlet",
+ "mvc.command.name=/login/login",
+ "service.ranking:Integer=100"
+ },
+ service = MVCActionCommand.class
+ )
+public class CustomLoginActionCommand extends BaseMVCActionCommand {
+
+ @Override
+ protected void doProcessAction(ActionRequest actionRequest, ActionResponse actionResponse) throws Exception {
+
+
